@@ -1,14 +1,14 @@
 {
     "variables": {
-        "aws_access_key": "AKIAWYU37XRL4MIUC6GF",
-        "aws_secret_key": "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",
+        "aws_access_key": "<access_key>",
+        "aws_secret_key": "<secret_key>",
         "region":         "ap-northeast-2"
     },
     "builders": [
         {
             "type": "amazon-ebs",
-            "access_key": "AKIAWYU37XRL4MIUC6GF",
-            "secret_key": "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",
+            "access_key": "<access_key>",
+            "secret_key": "<secret_key>",
             "vpc_id": "vpc-044316f2dd5923d42",
             "subnet_id": "subnet-075fd4837df109562",
             "instance_type": "t2.micro",
