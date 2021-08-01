@@ -1,0 +1,41 @@
+{
+    "variables": {
+        "aws_access_key": "AKIAWYU37XRL4MIUC6GF",
+        "aws_secret_key": "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",
+        "region":         "ap-northeast-2"
+    },
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "access_key": "AKIAWYU37XRL4MIUC6GF",
+            "secret_key": "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",
+            "vpc_id": "vpc-044316f2dd5923d42",
+            "subnet_id": "subnet-075fd4837df109562",
+            "instance_type": "t2.micro",
+            "region": "ap-northeast-2",
+            "source_ami_filter": {
+                "filters": {
+                  "virtualization-type": "hvm",
+                  "architecture": "x86_64",
+                  "name": "*amzn2-ami-hvm-*",
+                  "block-device-mapping.volume-type": "gp2",
+                  "root-device-type": "ebs"
+                }
+            },
+            "source_ami": "ami-0b827f3319f7447c6",
+            "ssh_username": "ec2-user",
+            "ami_name": "packer"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sleep 30",
+                "sudo yum -y install httpd",
+                "sudo systemctl start httpd",
+                "sudo systemctl enable httpd"
+            ]
+        }
+    ]
+}
